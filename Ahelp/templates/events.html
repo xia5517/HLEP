@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../static/js/jquery.min.js"></script>
+    <script src="../static/js/jquery.cookie.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="../static/sdf_js/event.js"></script>
+    <script src="../static/sdf_js/public.js"></script>
+
+
+    <link rel="stylesheet" href="../static/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../static/css/style.css"/>
+</head>
+<body>
+    <div class="wrap">
+        <nav class="navbar navbar-fixed-top  navbar-embossed" style="min-height: 150px;padding:10px 30px 0 30px; margin-bottom:0; position: relative">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="navbar-header col-md-3" style=" padding-right:30px;">
+                        <a class="navbar-brand" href="../index">
+                            <img src="../static/img/1.png" alt=""/>
+                        </a>
+                    </div>
+                    <div  style="padding:30px 0;" class="col-md-9">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="../index" style="color:#ff5400;">最新信息<span class="badge" style="background: #f12c2c">New</span></a></li>
+                            <li><a href="../publish"  style="color:#ff5400;">发布</a></li>
+                            <li><a href="../events"  style="color:#ff5400;">全部信息</a></li>
+
+                        </ul>
+
+                        <div id="header_btn_group">
+                            <div class="btn navbar-right succ_session" id="btn_quit">退出</div>
+                            <div class="btn navbar-right" id="btn_session">游客@2301</div>
+                            <div class="btn navbar-right hidden" id="btn_session_style" style="padding-right:0;padding-top: 10px">亲爱的</div>
+                            <div class="btn navbar-right" id="btn_sign"> <a href="#"  data-toggle="modal" data-target=".bs-example-modal-sm">注册</a></div>
+                            <div class="btn navbar-right" id="btn_login"><a href="#home"  data-toggle="modal" data-target=".bs-example-modal-sm">登录</a></div>
+                        </div>
+                        <form  class="navbar-form navbar-right" id="nav_form">
+                            <div class="form-group" style="position: relative; ">
+                                <input type="text" placeholder="请输入 事件的编号.." class="form-control" style="width:210px;">
+                                <span class="glyphicon glyphicon-search" style="position: absolute;top:10px;right: 0px;color:#ccc;"></span>
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </nav><!--header-->
+        <div class="container">
+
+            <!--主页-->
+            <div id="home_info">
+
+                <div class="row">
+                    <div id="home_left"  class=" col-md-9 col-xs-9" style="padding:10px;">
+                       <div id="all_page">
+                           <div class="row" style="border-bottom: 1px solid #ff5400;">
+                               <h2><span class="glyphicon glyphicon-chevron-left"></span><small>全部消息</small> </h2>
+                           </div>
+                           <div class="col-md-10 col-md-offset-2"  id="all_events" style="padding-right: 10px;">
+                           </div>
+                       </div>
+
+                    </div>
+                    <div id="home_right" class="col-md-3 col-xs-3">
+                        <ul class="nav nav-pills nav-stacked" style="padding-top:30px;opacity: .8;">
+                            <li><a href="../person"><span class="glyphicon glyphicon-home"></span>个人中心</a></li>
+                            <li><a href="../person"><span class="glyphicon glyphicon-bookmark"></span>我的收藏</a></li>
+                            <li><a href="../person"><span class="glyphicon glyphicon-paperclip"></span>我的浏览历史</a></li>
+                            <li><a href="../person"><span class="glyphicon glyphicon-edit"></span>我的发布</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+        </div><!--container-->
+
+
+    </div><!--wrap-->
+    <div id='footer'>
+        <div class="text-center" style="padding:20px 0;">Copyright&nbsp;&copy;2016-2020&nbsp;xby&nbsp;All&nbsp;Rights&nbsp;Reserved&nbsp;&nbsp;</div>
+    </div><!---footer--->
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../static/js/jquery.min.js"></script>
+    <script src="../static/js/jquery.cookie.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="../static/sdf_js/public.js"></script>
+    <script src="../static/sdf_js/change_per.js"></script>
+
+
+    <link rel="stylesheet" href="../static/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../static/css/style.css"/>
+</head>
+<body>
+    <div class="wrap">
+        <nav class="navbar navbar-fixed-top  navbar-embossed" style="min-height: 150px;padding:10px 30px 0 30px; margin-bottom:0; position: relative">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="navbar-header col-md-3" style=" padding-right:30px;">
+                        <a class="navbar-brand" href="../index">
+                            <img src="../static/img/1.png" alt=""/>
+                        </a>
+                    </div>
+                    <div  style="padding:30px 0;" class="col-md-9">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="../index" style="color:#ff5400;">最新信息<span class="badge" style="background: #f12c2c">New</span></a></li>
+                            <li><a href="../publish"  style="color:#ff5400;">发布</a></li>
+                            <li><a href="../events"  style="color:#ff5400;">全部信息</a></li>
+
+                        </ul>
+
+                        <div id="header_btn_group">
+                            <div class="btn navbar-right succ_session" id="btn_quit">退出</div>
+                            <div class="btn navbar-right" id="btn_session">游客@2301</div>
+                            <div class="btn navbar-right hidden" id="btn_session_style" style="padding-right:0;padding-top: 10px">亲爱的</div>
+                            <div class="btn navbar-right" id="btn_sign"> <a href="#"  data-toggle="modal" data-target=".bs-example-modal-sm">注册</a></div>
+                            <div class="btn navbar-right" id="btn_login"><a href="#home"  data-toggle="modal" data-target=".bs-example-modal-sm">登录</a></div>
+                        </div>
+                        <form  class="navbar-form navbar-right" id="nav_form">
+                            <div class="form-group" style="position: relative; ">
+                                <input type="text" placeholder="请输入 事件的编号.." class="form-control" style="width:210px;">
+                                <span class="glyphicon glyphicon-search" style="position: absolute;top:10px;right: 0px;color:#ccc;"></span>
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </nav><!--header-->
+        <div class="container">
+            <div class="row">
+                 <div class="col-md-9 col-xs-9">
+                    <div id="personal" class="row" style="padding:10px 8%;">
+                        <div class="row" style="border-bottom: 1px solid #ff5400;">
+                            <h2><small>完善个人信息</small> <div id="change_username" style="float: right;color:#ccc;"></div> </h2>
+                        </div>
+                        <br/>
+                        <form class="form-horizontal" action="POST" id ="ChangForm" style="padding:20px;">
+                            <div class="form-group text-center"><div class="prompt"></div></div>
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label"> <span class="glyphicon glyphicon-asterisk"></span>性别：</label>
+                                 <div class="col-sm-4">
+                                        <input type="radio" name="sex"  value="女">女士
+                                        <input type="radio" name="sex" value="男">男士
+                                 </div>
+                            </div>
+                              <div class="form-group">
+                                <label for="change_age" class="col-sm-5 control-label"><span class="glyphicon glyphicon-asterisk"></span>年龄：</label>
+                                 <div class="col-sm-4">
+                                    <input  class="form-control"id="change_age" type="text" name="age" style="width:50px;">
+                                 </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="change_pwd" class="col-sm-5 control-label"><span class="glyphicon glyphicon-asterisk"></span>修改密码：</label>
+                                 <div class="col-sm-4">
+                                    <input  class="form-control" id="change_pwd"type="password" name="pwd">
+                                 </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="change_pwd_2" class="col-sm-5 control-label"><span class="glyphicon glyphicon-asterisk"></span>再次输入密码：</label>
+                                 <div class="col-sm-4">
+                                    <input  class="form-control" id="change_pwd_2" type="password" name ="re_pwd">
+                                 </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="change_tel" class="col-sm-5 control-label"><span class="glyphicon glyphicon-asterisk"></span>联系电话：</label>
+                                 <div class="col-sm-4">
+                                    <input  class="form-control" id="change_tel" type="text" name="tel">
+                                 </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="change_email" class="col-sm-5 control-label"><span class="glyphicon glyphicon-asterisk"></span>邮箱地址：</label>
+                                 <div class="col-sm-4">
+                                    <input  class="form-control" type="text" id ="change_email" name="email">
+                                 </div>
+                            </div>
+                        </form>
+                        <div class="form-group text-center">
+                             <div class="col-sm-10">
+                                 <button type="submit" id="Change_Persion_btn" class="btn btn-warning">提交</button>
+                             </div>
+                        </div>
+                        <br/><br/>
+            </div>
+                 </div>
+                 <div class="col-md-3 col-xs-3">
+                    <ul class="nav nav-pills nav-stacked" style="padding-top:30px;opacity: .8;">
+                        <li><a href="../person"><span class="glyphicon glyphicon-home"></span>个人中心</a></li>
+                        <li><a href="../person"><span class="glyphicon glyphicon-bookmark"></span>我的收藏</a></li>
+                        <li><a href="../person"><span class="glyphicon glyphicon-paperclip"></span>我的浏览历史</a></li>
+                        <li><a href="../person"><span class="glyphicon glyphicon-edit"></span>我的发布</a></li>
+                    </ul>
+                 </div>
+            </div>
+        </div><!--container-->
+
+
+
+
+    </div><!--wrap-->
+    <div id='footer'>
+        <div class="text-center" style="padding:20px 0;">Copyright&nbsp;&copy;2016-2020&nbsp;xby&nbsp;All&nbsp;Rights&nbsp;Reserved&nbsp;&nbsp;</div>
+    </div><!---footer--->
+</body>
+</html>

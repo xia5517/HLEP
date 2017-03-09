@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../static/js/jquery.min.js"></script>
+    <script src="../static/js/jquery.cookie.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="../static/sdf_js/page.js"></script>
+    <script src="../static/sdf_js/public.js"></script>
+
+    <link rel="stylesheet" href="../static/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../static/css/style.css"/>
+    <link rel="stylesheet" href="../static/css/dropzone.css">
+    <script>
+        data = {{ data|safe }}
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <nav class="navbar navbar-fixed-top  navbar-embossed" style="min-height: 150px;padding:10px 30px 0 30px; margin-bottom:0; position: relative">
+            <div class="container-fluid">
+                 <div class="row">
+                    <div class="navbar-header col-md-3" style=" padding-right:30px;">
+                        <a class="navbar-brand" href="../index">
+                            <img src="../static/img/1.png" alt=""/>
+                        </a>
+                    </div>
+                    <div  style="padding:30px 0;" class="col-md-9">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="../index" style="color:#ff5400;">最新信息<span class="badge" style="background: #f12c2c">New</span></a></li>
+                            <li><a href="../publish"  style="color:#ff5400;">发布</a></li>
+                            <li><a href="../events"  style="color:#ff5400;">全部信息</a></li>
+
+                        </ul>
+
+                        <div id="header_btn_group">
+                            <div class="btn navbar-right succ_session" id="btn_quit">退出</div>
+                            <div class="btn navbar-right" id="btn_session">游客@2301</div>
+                            <div class="btn navbar-right hidden" id="btn_session_style" style="padding-right:0;padding-top: 10px">亲爱的</div>
+                            <div class="btn navbar-right" id="btn_sign"> <a href="#"  data-toggle="modal" data-target=".bs-example-modal-sm">注册</a></div>
+                            <div class="btn navbar-right" id="btn_login"><a href="#home"  data-toggle="modal" data-target=".bs-example-modal-sm">登录</a></div>
+                        </div>
+                        <form  class="navbar-form navbar-right" id="nav_form">
+                            <div class="form-group" style="position: relative; ">
+                                <input type="text" placeholder="请输入 事件的编号.." class="form-control" style="width:210px;">
+                                <span class="glyphicon glyphicon-search" style="position: absolute;top:10px;right: 0px;color:#ccc;"></span>
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </nav><!--header-->
+        <div class="container">
+
+            <!--事件具体信息页面-->
+            <div id="page" class="row">
+                <div class="panel panel-default event_border">
+                    <div class="panel-body event_top"></div>
+                </div>
+
+                 <div class="panel panel-default event_border">
+                    <div class="panel-body">
+                        <div>
+                            <h3 id="title_h3"></h3>
+                            <hr>
+                            <div class="row">
+                                <div class="col-xs-6" id="event_left" style="max-height:300px;overflow: auto ">
+                                    <div id="event_content_area"></div>
+                                </div>
+                                <div class="col-xs-6" id="event_right">
+                                    <div id="EventImg" class="carousel slide" style="width:80%;margin: 0 auto;">
+                                        <!-- 轮播（Carousel）项目 -->
+                                        <div class="carousel-inner"></div>
+                                        <!-- 轮播（Carousel）导航 -->
+                                        <a class="carousel-control left" href="#EventImg"
+                                            data-slide="prev">&lsaquo;</a>
+                                        <a class="carousel-control right" href="#EventImg"
+                                            data-slide="next">&rsaquo;</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row" id="event_btn_group">
+                                <div class="text-center hidden" id="status_r_btn">
+                                    <button class="btn btn-warning" onclick="receive_event_btn()">接取</button>
+                                </div>
+                                <div class="text-center hidden" id="status_t_btn">
+                                    <button class="btn btn-warning" onclick="rec_succ_btn()">完成</button>
+                                    &nbsp;&nbsp;&nbsp;
+                                    <button class="btn btn-warning" onclick="rec_del_btn()">放弃</button>
+                                </div>
+                                <div class="text-center hidden" id="status_p_btn">
+                                    <button class="btn btn-warning" onclick="pub_succ_btn()">完成</button>
+                                    &nbsp;&nbsp;&nbsp;
+                                    <button class="btn btn-warning" onclick="pub_del_btn()">取消</button>
+                                </div>
+                                <div  class="text-center hidden" id="status_del_btn">
+                                    <button class="btn btn-warning" onclick="pub_del_btn()">取消</button>
+                                </div>
+                            </div>
+                            </br>
+                        </div>
+                    </div>
+
+                </div>
+
+        </div><!--container-->
+
+            <!--登录-->
+            <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+
+
+                    <ul id="myTab" class="nav nav-tabs">
+                        <li class="active"><a href="#home" data-toggle="tab">登录</a></li>
+                        <li><a href="#ios" data-toggle="tab">注册</a></li>
+                        <button type="button" class="close login_close" data-dismiss="modal" aria-hidden="true" style="padding:5px;">
+                            ×
+                            </button>
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane fade in active" id="home">
+                             <div class="row text-right">
+                                    <div class="prompt hidden"></div>
+                             </div>
+                            <div style="padding:20px;">
+                                <form class="bs-example bs-example-form" role="form">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="login_username" placeholder="账号" >
+                                    </div>
+                                    <br>
+                                    <div class="input-group"  style="padding-bottom:30px;">
+                                        <input type="password" class="form-control" id="login_pwd" placeholder="密码">
+                                    </div>
+                                    <button type="button" class="btn btn-warning btn-sm btn-block w-btn-login" onclick="login()">登录</button>
+                                        <div class="control-group">
+                                            <div class="controls text-right">
+                                                <small><a href="#" class="h7" target="_blank">忘记密码?</a></small>
+                                            </div>
+                                        </div>
+                                </form>
+                            </div>
+                        </div>
+
+
+                        <!--注册-->
+                        <div class="tab-pane fade" id="ios">
+                            <div class="row text-right">
+                                    <div class="prompt hidden"></div>
+                             </div>
+                            <div style="padding:20px;">
+                                <form class="bs-example bs-example-form" role="form">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="sign_user" placeholder="6-16位数字与字母组合">
+                                    </div>
+                                    <br>
+                                    <div class="input-group">
+                                        <input type="password" class="form-control"id="sign_pwd" placeholder="请输入6位以上密码">
+                                    </div>
+                                    <br/>
+                                    <div class="input-group">
+                                        <input type="password" class="form-control" id="sign_Repwd" placeholder="请重新输入密码">
+                                    </div>
+                                    <br/>
+                                    <div class="input-group" style="padding-bottom:30px;">
+                                        <input type="text" class="form-control" id="sign_emil" placeholder="请填写有效邮箱">
+                                    </div>
+                                    <button type="button" class="btn btn-warning btn-sm btn-block w-btn-login" onclick="regist()">注册</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div><!--wrap-->
+    <div id='footer'>
+        <div class="text-center" style="padding:20px 0;">Copyright&nbsp;&copy;2016-2020&nbsp;xby&nbsp;All&nbsp;Rights&nbsp;Reserved&nbsp;&nbsp;</div>
+    </div><!---footer--->
+</body>
+</html>

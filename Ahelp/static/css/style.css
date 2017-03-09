@@ -1,0 +1,142 @@
+*{
+    font-family: "Microsoft YaHei";
+}
+a{
+     color:#333;
+    font-size: 15px;
+ }
+a:hover{
+    text-decoration: none;
+    color:#ff5400;
+}
+
+/*注册登录*/
+.login_close {
+    float: right;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    filter: alpha(opacity=20);
+    opacity: .2;
+}
+.modal-content{
+    position: relative;
+    margin-top:70%;
+}
+#myTabContent .input-group{
+    margin:0 auto;
+}
+.prompt{
+    color:red;
+    padding:5px 20px 0;
+}
+.succ_session{
+     color:#ff5400;
+    font-size:18px;
+}
+#btn_session:hover{
+     text-decoration: underline;
+}
+
+
+/*个人*/
+#person_box li{
+    padding:5px 10px;
+    background: #ccc;
+    opacity: .6;
+    text-align: center;
+    border:1px solid #fff;
+    width: 50%;
+    float:left;
+}
+.per_info
+{
+    margin-bottom: 1px;
+}
+#person_box hr{
+    margin: 0;
+}
+.p_style{
+    display: inline-block;
+    padding:5px 10px;
+}
+.glyphicon-asterisk{
+    color:red;
+    font-size:10px;
+}
+
+
+/*轮播*/
+#myCarousel img{
+    margin: 0 auto;
+}
+.span_button{
+    padding:10px 10px;
+}
+.span_button:hover {
+    color:#ff5400;
+    text-decoration: underline;
+}
+
+
+/*event*/
+.event_hr{
+    margin:10px 0;
+}
+.event_title a{
+    color:#ff5400;
+    display:block;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    font-size: 18px;
+}
+.event_title a:hover {
+    text-decoration:underline;
+}
+.event_box{
+    margin-top:20px;
+    margin-bottom: 60px;
+}
+ .event_span{
+    color:#c0c0c0;
+    font-size: 15px;
+    display: inline-block;
+    margin-right: 10px;
+}
+.event_imgs img{
+  height: 130px;
+ }
+
+
+/*new*/
+ h2{
+    color:#f0ad4e;
+}
+ .glyphicon{
+    margin:0 10px;
+}
+
+ /*page*/
+.event_top{
+    border-top:3px solid #ff5400;
+}
+.event_border{
+    border:1px solid #ccc;
+    box-shadow:3px 3px 3px #ddd;
+}
+.center{
+    margin:0 auto;
+}
+#event_content_area{
+    padding:20px 30px;
+    color:#494949;
+    line-height:  25px;
+}
+@media (min-width: 768px){
+    #EventImg img{
+    height:250px;
+    }
+}

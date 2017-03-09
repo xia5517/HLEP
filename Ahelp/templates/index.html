@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../static/js/jquery.min.js"></script>
+    <script src="../static/js/jquery.cookie.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="../static/sdf_js/public.js"></script>
+    <script src="../static/sdf_js/index.js"></script>
+
+
+    <link rel="stylesheet" href="../static/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../static/css/style.css"/>
+</head>
+<body>
+    <div class="wrap">
+        <nav class="navbar navbar-fixed-top  navbar-embossed" style="min-height: 150px;padding:10px 30px 0 30px; margin-bottom:0; position: relative">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="navbar-header col-md-3" style=" padding-right:30px;">
+                        <a class="navbar-brand" href="../index">
+                            <img src="../static/img/1.png" alt=""/>
+                        </a>
+                    </div>
+                    <div  style="padding:30px 0;" class="col-md-9">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="../index" style="color:#ff5400;">最新信息<span class="badge" style="background: #f12c2c">New</span></a></li>
+                            <li><a href="../publish"  style="color:#ff5400;">发布</a></li>
+                            <li><a href="../events"  style="color:#ff5400;">全部信息</a></li>
+
+                        </ul>
+
+                        <div id="header_btn_group">
+                            <div class="btn navbar-right succ_session" id="btn_quit">退出</div>
+                            <div class="btn navbar-right" id="btn_session">游客@2301</div>
+                            <div class="btn navbar-right hidden" id="btn_session_style" style="padding-right:0;padding-top: 10px">亲爱的</div>
+                            <div class="btn navbar-right" id="btn_sign"> <a href="#"  data-toggle="modal" data-target=".bs-example-modal-sm">注册</a></div>
+                            <div class="btn navbar-right" id="btn_login"><a href="#home"  data-toggle="modal" data-target=".bs-example-modal-sm">登录</a></div>
+                        </div>
+                        <form  class="navbar-form navbar-right" id="nav_form">
+                            <div class="form-group" style="position: relative; ">
+                                <input type="text" placeholder="请输入 事件的编号.." class="form-control" style="width:210px;">
+                                <span class="glyphicon glyphicon-search" style="position: absolute;top:10px;right: 0px;color:#ccc;"></span>
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </nav><!--header-->
+        <div class="container">
+
+            <!--主页-->
+            <div id="home_info">
+                <!--轮播图-->
+                <div id="div_Carousel" class="" style=" margin:0 auto; height:auto;">
+                    <div id="myCarousel" class="carousel slide">
+                        <!-- 轮播（Carousel）指标 -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                            <li data-target="#myCarousel" data-slide-to="3"></li>
+                        </ol>
+                        <!-- 轮播（Carousel）项目 -->
+                        <div class="carousel-inner">
+                            <a class="item active" href="#">
+                                <img src="../static/img/2.jpg" alt="Second slide">
+                            </a>
+                            <a class="item" href="#">
+                                <img src="../static/img/4.jpg" alt="Foue slide">
+                            </a>
+                            <a class="item" href="#">
+                                <img src="../static/img/5.jpg" alt="Third slide">
+                            </a>
+                            <a class="item" href="#">
+                                <img src="../static/img/6.jpg" alt="Third slide">
+                            </a>
+                        </div>
+                        <!-- 轮播（Carousel）导航 -->
+                        <a class="carousel-control left" href="#myCarousel"
+                           data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+                        <a class="carousel-control right" href="#myCarousel"
+                           data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div id="home_left"  class=" col-md-9 col-xs-9" style="padding:10px;">
+                        <div id="new_page">
+                            <div class="row" style="border-bottom: 1px solid #ff5400;">
+                                <h2><span class="glyphicon glyphicon-chevron-left"></span><small>最新消息</small> </h2>
+                            </div>
+                            <div class="col-md-10 col-md-offset-2" id ="last_event" style="padding-right: 10px;"></div>
+                        </div>
+                       <div id="all_page" class="hidden">
+                           <div class="row" style="border-bottom: 1px solid #ff5400;">
+                               <h2><span class="glyphicon glyphicon-chevron-left"></span><small>全部消息</small> </h2>
+                           </div>
+                           <div class="col-md-10 col-md-offset-2" style="padding-right: 10px;">
+
+                           </div>
+                       </div>
+
+                    </div>
+                    <div id="home_right" class="col-md-3 col-xs-3">
+                        <ul class="nav nav-pills nav-stacked" style="padding-top:30px;opacity: .8;">
+                            <li><a href="../person"><span class="glyphicon glyphicon-home"></span>个人中心</a></li>
+                            <li><a href="../person"><span class="glyphicon glyphicon-bookmark"></span>我的收藏</a></li>
+                            <li><a href="../person"><span class="glyphicon glyphicon-paperclip"></span>我的浏览历史</a></li>
+                            <li><a href="../person"><span class="glyphicon glyphicon-edit"></span>我的发布</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!--发布页面-->
+            <div id="publish" class="row hidden" style=" margin: 0 auto;padding:20px 0;">
+                <div style=" background: #ccc; height:300px;">图片区</div>
+                <div class="form-group" style="padding:30px 0;">
+                    <input class="form-control" id="publish_title" style="height:40px;" type="text" placeholder="概括事件" value=""/>
+                </div>
+                <div class="form-group">
+                    <textarea  class="form-control" id="publish_content" id="" cols="10" rows="10"placeholder="描述帮助的内容"></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="button" class="btn btn-warning">发布</button>
+                </div>
+            </div>
+
+            <!--查看详细个人信息页面-->
+            <div id="personal" class="row hidden" style="padding:10px 8%;">
+                <div class="col-md-2 col-xs-2" style="padding: 40px 20px;">
+                    <br/><br/>
+                    <div class="row">
+                        <img src="../static/img/por5.jpg" class="img-thumbnail" style="margin:0 auto;" alt=""/>
+                    </div>
+                    <br/>
+                    <div class="row text-center">
+                        <a class="" href="#">修改头像</a>
+                    </div>
+                </div>
+                <div class="col-md-10 col-xs-10" style="padding-left: 40px;">
+                    <div class="row" style="border-bottom: 1px solid #ff5400;color:#999;">
+                        <div class="p_style" id="per_box_user" style="font-size:25px; margin-right: 10px;">Pig.Zzz</div>
+                        <div class="p_style" id="per_box_money" style="width: 24px;height: 24px;background: url('../static/img/gold_button_heart.png')">34</div>
+                        <div class="p_style span_button" style="float: right">修改个人信息</div>
+                    </div>
+                    <br/>
+                    <div class="row" style="padding:10px;"><div class="col-md-2">性别：</div><div class="col-md-9">女</div></div>
+                    <div class="row" style="padding:10px"><div class="col-md-2">年龄：</div><div class="col-md-9">女</div></div>
+                    <div class="row" style="padding:10px;"><div class="col-md-2">联系电话：</div><div class="col-md-9">13111111111</div></div>
+                    <div class="row" style="padding:10px;"><div class="col-md-2">邮箱：</div><div class="col-md-9">973672933@qq.com</div></div>
+                    <br/><br/>
+                    <ul id="personal_tab" class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#history_publish_info"  data-toggle="tab">发布信息</a>
+                        </li>
+                        <li>
+                            <a href="#history_receive_info"  data-toggle="tab">接取信息</a>
+                        </li>
+                        <li>
+                            <a href="#history_received_info"  data-toggle="tab">待完成信息</a>
+                        </li>
+                    </ul>
+                    <div id="personal_table_content" class="tab-content" style="padding: 20px 5px; min-height: 700px;">
+                        <div  class="tab-pane fade in active" id="history_publish_info" >
+                           <div class="event_box">
+                               <div class="row" style="padding:0 20px;">
+                                   <div class="navbar-left text-left col-xs-8" >
+                                       <div class="event_span">
+                                           <span class="glyphicon glyphicon-time"></span>
+                                           <span>2016/01/12</span>
+                                       </div>
+                                       <div class="event_span">
+                                           <span class="glyphicon glyphicon-user"></span>
+                                           <span>PigPig.Zzz</span>
+                                       </div>
+
+                                   </div>
+
+                                   <div class="navbar-right text-right col-xs-4">
+                                       <div class="event_span">
+                                           <span class="glyphicon glyphicon-heart-empty"></span>
+                                           <span>可接取</span>
+                                       </div>
+
+                                       <div class="event_span">
+                                           <span class="	glyphicon glyphicon-eye-open"></span>
+                                           <span>5</span>
+                                       </div>
+                                   </div>
+
+                               </div>
+
+                              <div class="row event_imgs"  style="padding:0 20px;">
+                                  <hr  class="event_hr"/>
+                                  <div class=" ">
+                                      <img src="../static/img/por5.jpg" alt=""/> <img src="../static/img/por5.jpg" alt=""/>
+                                  </div>
+                              </div>
+                               <hr  class="event_hr"/>
+
+
+                               <div class="row event_title" style="padding:0 20px;">
+                                   <div class="navbar-left text-left col-xs-8">
+                                       <a href="#">最近陈思诚出轨事件沸沸扬扬，几天过去了仍然热度不减，原因无他，一来破了史上最迟回应记录，</a>
+                                   </div>
+                                   <div class="navbar-right text-right col-xs-4">
+                                       <div class="event_span">
+                                           <span class="glyphicon glyphicon-map-marker"></span>
+                                           <span>南岗区学府三道街</span>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+
+                        </div>
+                        <div  class="tab-pane fade in" id="history_receive_info">
+                            3453
+                        </div>
+                        <div  class="tab-pane fade in" id="history_received_info">
+                            767868
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div><!--container-->
+
+
+
+        <!--登录-->
+        <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+
+
+                    <ul id="myTab" class="nav nav-tabs">
+                        <li class="active"><a href="#home" data-toggle="tab">登录</a></li>
+                        <li><a href="#ios" data-toggle="tab">注册</a></li>
+                        <button type="button" class="close login_close" data-dismiss="modal" aria-hidden="true" style="padding:5px;">
+                            ×
+                            </button>
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane fade in active" id="home">
+                             <div class="row text-right">
+                                    <div class="prompt hidden"></div>
+                             </div>
+                            <div style="padding:20px;">
+                                <form class="bs-example bs-example-form" role="form">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="login_username" placeholder="账号" >
+                                    </div>
+                                    <br>
+                                    <div class="input-group"  style="padding-bottom:30px;">
+                                        <input type="password" class="form-control" id="login_pwd" placeholder="密码">
+                                    </div>
+                                    <button type="button" class="btn btn-warning btn-sm btn-block w-btn-login" onclick="login()">登录</button>
+                                        <div class="control-group">
+                                            <div class="controls text-right">
+                                                <small><a href="#" class="h7" target="_blank">忘记密码?</a></small>
+                                            </div>
+                                        </div>
+                                </form>
+                            </div>
+                        </div>
+
+
+                        <!--注册-->
+                        <div class="tab-pane fade" id="ios">
+                            <div class="row text-right">
+                                    <div class="prompt hidden"></div>
+                             </div>
+                            <div style="padding:20px;">
+                                <form class="bs-example bs-example-form" role="form">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="sign_user" placeholder="6-16位数字与字母组合">
+                                    </div>
+                                    <br>
+                                    <div class="input-group">
+                                        <input type="password" class="form-control"id="sign_pwd" placeholder="请输入6位以上密码">
+                                    </div>
+                                    <br/>
+                                    <div class="input-group">
+                                        <input type="password" class="form-control" id="sign_Repwd" placeholder="请重新输入密码">
+                                    </div>
+                                    <br/>
+                                    <div class="input-group" style="padding-bottom:30px;">
+                                        <input type="text" class="form-control" id="sign_emil" placeholder="请填写有效邮箱">
+                                    </div>
+                                    <button type="button" class="btn btn-warning btn-sm btn-block w-btn-login" onclick="regist()">注册</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div><!--wrap-->
+    <div id='footer'>
+        <div class="text-center" style="padding:20px 0;">Copyright&nbsp;&copy;2016-2020&nbsp;xby&nbsp;All&nbsp;Rights&nbsp;Reserved&nbsp;&nbsp;</div>
+    </div><!---footer--->
+</body>
+</html>
